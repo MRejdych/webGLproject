@@ -85,16 +85,17 @@ function createAmbientLight() {
 };
 
 function createSpotLight() {
-    let spotLight = new THREE.SpotLight(0xffffff);
-    spotLight.position.set(0, 10, 0);
+    let spotLight = new THREE.SpotLight(0xffffff, 1.2);
+    spotLight.position.set(0, 10, 6);
+    //spotLight.target.set(0, 5, 0);
     spotLight.castShadow = true;
     spotLight.target = cube;
     return spotLight;
 };
 
 function createCube() {
-    let geometry = new THREE.BoxGeometry(1, 1, 1);
-    let material = new THREE.MeshLambertMaterial({ color: 0x00ff00 });
+    let geometry = new THREE.IcosahedronGeometry(1, 0);
+    let material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
     let cube = new THREE.Mesh(geometry, material);
     cube.castShadow = true;
     return cube;
