@@ -42,24 +42,24 @@ function initControls(){
     }
     
     let gui = new dat.GUI();
-    gui.add(controls, 'cubeColor', 0x000000, 0xFFFFFF)
-    gui.add(controls, 'movingSpeed', 0, 0.25)
-    gui.add(controls, 'xRotationSpeed', 0, 0.25)
-    gui.add(controls, 'yRotationSpeed', 0, 0.25)
-    gui.add(controls, 'zRotationSpeed', 0, 0.25)
+    gui.add(controls, 'cubeColor', 0x000000, 0xFFFFFF);
+    gui.add(controls, 'movingSpeed', 0, 0.25);
+    gui.add(controls, 'xRotationSpeed', 0, 0.25);
+    gui.add(controls, 'yRotationSpeed', 0, 0.25);
+    gui.add(controls, 'zRotationSpeed', 0, 0.25);
 
     return controls;
-}
+};
 
 function initStats(){
-    var stats = new Stats();
+    let stats = new Stats();
     stats.showPanel(0);
     stats.domElement.style.position = 'absolute';
     stats.domElement.style.left = '0px';
     stats.domElement.style.top = '0px';
     document.body.appendChild(stats.dom);
     return stats;
-}
+};
 
 function createRenderer() {
     let renderer = new THREE.WebGLRenderer();
@@ -68,7 +68,7 @@ function createRenderer() {
     renderer.shadowMapEnabled = true;
     document.body.appendChild(renderer.domElement);
     return renderer;
-}
+};
 
 function createPlane() {
     let planeGeometry = new THREE.PlaneGeometry(7, 7, 1, 1);
@@ -78,11 +78,11 @@ function createPlane() {
     plane.position.y = -5;
     plane.rotation.x = -0.5 * Math.PI;
     return plane;
-}
+};
 
 function createAmbientLight() {
     return new THREE.AmbientLight(0x404040);
-}
+};
 
 function createSpotLight() {
     let spotLight = new THREE.SpotLight(0xffffff);
@@ -90,7 +90,7 @@ function createSpotLight() {
     spotLight.castShadow = true;
     spotLight.target = cube;
     return spotLight;
-}
+};
 
 function createCube() {
     let geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -106,4 +106,4 @@ function setUpCamera(renderer) {
     let controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.enableZoom = false;
     return camera;
-}
+};
