@@ -4,14 +4,14 @@ const scene = new THREE.Scene();
 const renderer = createRenderer();
 const camera = setUpCamera(renderer);
 const plane = createPlane();
-const cube = createCube();
+const icosahedron = createIcosahedron();
 const ambientLight = createAmbientLight();
 const spotLight = createSpotLight();
 
 let offset = 0;
 
 scene.add(plane);
-scene.add(cube);
+scene.add(icosahedron);
 scene.add(ambientLight);
 scene.add(spotLight);
 
@@ -24,17 +24,17 @@ function animate() {
     stats.update();
     requestAnimationFrame(animate);
     offset += controls.movingSpeed;
-    cube.material.color.setHex(controls.cubeColor);
-    cube.rotation.x += controls.xRotationSpeed;
-    cube.rotation.z += controls.zRotationSpeed;
-    cube.rotation.y += controls.yRotationSpeed;
-    cube.position.y = 0 + ((Math.cos(offset)) / 2);
+    icosahedron.material.color.setHex(controls.objectColor);
+    icosahedron.rotation.x += controls.xRotationSpeed;
+    icosahedron.rotation.z += controls.zRotationSpeed;
+    icosahedron.rotation.y += controls.yRotationSpeed;
+    icosahedron.position.y = 0 + ((Math.cos(offset)) / 2);
     renderer.render(scene, camera);
 };
 
 function initControls(){
     let controls = new function() {
-        this.cubeColor = 0x00ff00;
+        this.objectColor = 0x00ff00;
         this.movingSpeed = 0.05;
         this.xRotationSpeed = 0.01;
         this.yRotationSpeed = 0.03;
@@ -42,7 +42,7 @@ function initControls(){
     }
     
     let gui = new dat.GUI();
-    gui.add(controls, 'cubeColor', 0x000000, 0xFFFFFF);
+    gui.add(controls, 'objectColor', 0x000000, 0xFFFFFF);
     gui.add(controls, 'movingSpeed', 0, 0.25);
     gui.add(controls, 'xRotationSpeed', 0, 0.25);
     gui.add(controls, 'yRotationSpeed', 0, 0.25);
@@ -89,16 +89,16 @@ function createSpotLight() {
     spotLight.position.set(0, 10, 6);
     //spotLight.target.set(0, 5, 0);
     spotLight.castShadow = true;
-    spotLight.target = cube;
+    spotLight.target = icosahedron;
     return spotLight;
 };
 
-function createCube() {
+function createIcosahedron() {
     let geometry = new THREE.IcosahedronGeometry(1, 0);
     let material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
-    let cube = new THREE.Mesh(geometry, material);
-    cube.castShadow = true;
-    return cube;
+    let icosahedron = new THREE.Mesh(geometry, material);
+    icosahedron.castShadow = true;
+    return icosahedron;
 };
 
 function setUpCamera(renderer) {
