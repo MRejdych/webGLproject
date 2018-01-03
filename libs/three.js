@@ -4697,7 +4697,7 @@
 	 * @author tschw
 	 *
 	 * Uniforms of a program.
-	 * Those form a tree structure with a special top-level container for the root,
+	 * Those form a scene structure with a special top-level container for the root,
 	 * which you get by calling 'new WebGLUniforms( gl, program, renderer )'.
 	 *
 	 *
@@ -5154,7 +5154,7 @@
 
 	// --- Top-level ---
 
-	// Parser - builds up the property tree from the path strings
+	// Parser - builds up the property scene from the path strings
 
 	var RePathPart = /([\w\d_]+)(\])?(\[|\.)?/g;
 
