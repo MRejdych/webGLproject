@@ -100,7 +100,7 @@ Kod importujący drzewa znajduje się w pliku js/tree.js.
 ![Fire in the darkness](https://github.com/MRejdych/webGLproject/blob/master/readme_imgs/fire-in-the-darkness.png)  
   
 ## Struktura kodu:
-Każdy projekt posiada własny katalog, w którym znajdują się pliki projekt.html oraz projekt.js.  
+Każdy projekt posiada własny katalog, w którym znajdują się pliki project.html oraz project.js.  
 Kod wspólny dla dwóch lub więcej projektów znajduje się w plikach w katalogu js/  
 Biblioteki użyte w projektach znajdują się w katalogu libs/  
 
