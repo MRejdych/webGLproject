@@ -3,7 +3,8 @@
 W repozytorium znajdują się 4 projekty stworzone z użyciem biblioteki Three.js.
 
 ## Uruchomienie: 
-W celu uruchomienia projektów należy uruchomić prosty serwer HTTP w katalogu z skopiowanym repozytorium 
+Każdy projekt posiada link do witryny udostępniającej działającą demonstrację animacji.  
+W celu uruchomienia projektów lokalnie należy sklonować projekt i uruchomić prosty serwer HTTP w katalogu z skopiowanym repozytorium 
 a następnie otworzyć w przeglądarce plik project.html przypisany do wybranego projektu.  
 
 ### Przykładowe uruchomienie serwera HTTP na systemie Linux:  
@@ -22,6 +23,8 @@ a następnie otworzyć w przeglądarce plik project.html przypisany do wybranego
 ![run-project](https://github.com/MRejdych/webGLproject/blob/master/readme_imgs/run-project.png)    
 
 ## Floating object:  
+
+[Demonstracja](https://mrejdych.github.io/webGLproject/floating_object/project.html)  
 
 Projekt pierwszy to prosta animacja przedstawiająca obiekt poruszający się w górę i w dół.  
 
@@ -45,6 +48,8 @@ function animate() {
  ```  
 
 ## Skybox:
+
+[Demonstracja](https://mrejdych.github.io/webGLproject/skybox/project.html)  
 
 Drugi projekt przedstawia skybox stworzony z wykorzystaniem Three.js.  
 
@@ -73,6 +78,8 @@ function createSkybox() {
 
 ## Skybox with fire:
 
+[Demonstracja](https://mrejdych.github.io/webGLproject/skybox_with_fire/project.html)  
+
 Trzeci projekt przedstawia płomień stworzony z cząstek umieszczony wewnątrz skybox'a.  
 Płomień został uzyskany poprzez implementację niestandardowych obiektów BufferedGeometry oraz Material, która 
 znajduje się w pliku js/fire.js.  
@@ -80,6 +87,8 @@ znajduje się w pliku js/fire.js.
 ![Skybox with fire](https://github.com/MRejdych/webGLproject/blob/master/readme_imgs/skybox-with-fire.png)  
 
 ## Fire in the darkness:
+
+[Demonstracja](https://mrejdych.github.io/webGLproject/fire-in-the-darkness/project.html)  
 
 Czwarty projekt przedstawia ten sam płomień umieszczony wśród drzew stworzonych  
 przez narzędzie SnappyTree oraz zaimportowanych za pomocą biblioteki Proctree.js  
