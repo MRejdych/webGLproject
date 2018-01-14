@@ -27,7 +27,7 @@ Uruchomić wybrany projekt:
 
 Projekt pierwszy to prosta animacja przedstawiająca obiekt poruszający się w górę i w dół.  
 
-![Floating object](https://github.com/MRejdych/webGLproject/blob/master/readme_imgs/floating-onject.png)
+![Floating object](https://github.com/MRejdych/webGLproject/blob/master/readme_imgs/floating-object.png)
 
 ## Skybox:
 
