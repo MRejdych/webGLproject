@@ -54,19 +54,19 @@ Skybox został utworzony poprzez nałożenie dwustronnych tekstur na obiekt w ks
 
 ```javascript
 function createSkybox() {
-    let geometry = new THREE.CubeGeometry(1000, 1000, 1000);
-    
-    let materials = [
-        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load("img/rt.jpg"), side: THREE.DoubleSide }),
-        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load("img/lt.jpg"), side: THREE.DoubleSide }),        
-        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load("img/up.jpg"), side: THREE.DoubleSide }),
-        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load("img/dn.jpg"), side: THREE.DoubleSide }),
-        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load("img/fr.jpg"), side: THREE.DoubleSide }),
-        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load("img/bk.jpg"), side: THREE.DoubleSide })
-    ]
-    let material =  new THREE.MeshFaceMaterial(materials);
-    let skybox = new THREE.Mesh(geometry, material);
-    return skybox;
+ let geometry = new THREE.CubeGeometry(1000, 1000, 1000);
+   
+ let materials = [
+  new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load("img/rt.jpg"), side: THREE.DoubleSide }),
+  new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load("img/lt.jpg"), side: THREE.DoubleSide }),        
+  new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load("img/up.jpg"), side: THREE.DoubleSide }),
+  new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load("img/dn.jpg"), side: THREE.DoubleSide }),
+  new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load("img/fr.jpg"), side: THREE.DoubleSide }),
+  new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load("img/bk.jpg"), side: THREE.DoubleSide })
+ ]
+ let material =  new THREE.MeshFaceMaterial(materials);
+ let skybox = new THREE.Mesh(geometry, material);
+ return skybox;
 }
 ```  
 
