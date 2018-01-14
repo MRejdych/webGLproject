@@ -39,7 +39,7 @@ function initControls(){
         this.xRotationSpeed = 0.01;
         this.yRotationSpeed = 0.03;
         this.zRotationSpeed = 0.01;
-    }
+    };
     
     let gui = new dat.GUI();
     gui.add(controls, 'objectColor', 0x000000, 0xFFFFFF);

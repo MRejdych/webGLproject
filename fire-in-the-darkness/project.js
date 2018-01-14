@@ -1,4 +1,5 @@
 const scene = createScene();
+const stats = initStats();
 const plane = createPlane();
 const renderer = createRenderer();
 const camera = setUpCamera(renderer);
@@ -6,8 +7,6 @@ const clock = new THREE.Clock();
 const pointLight = createPointLight();
 
 let fire = void 0;
-let texture = void 0;
-
 
 scene.add(plane);
 scene.add(pointLight);
@@ -29,15 +28,17 @@ addTree2(scene, 4, 0, 6);
 addTree1(scene, 6, 0, 0);
 addTree2(scene, 0, 0, -6);
 
-
+let offset = 0.0;
 animate();
 
 
 function animate() {
+    stats.update();
     let delta = clock.getDelta();
-
+    offset += 0.3;
     requestAnimationFrame(animate);
     fire.material.update(delta);
+    pointLight.distance += ((Math.cos(offset)) / 1.5);
     renderer.render(scene, camera);
 }
 
@@ -47,10 +48,20 @@ function createScene() {
     return scene;
 }
 
+function initStats(){
+    let stats = new Stats();
+    stats.showPanel(0);
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '0px';
+    stats.domElement.style.top = '0px';
+    document.body.appendChild(stats.dom);
+    return stats;
+};
+
 function createPointLight() {
     let light = new THREE.PointLight(0xdfafaf, 1, 30, 3);
     light.position.y += 3;
-    //light.castShadow = true;
+    light.castShadow = true;
     return light;
 }
 
