@@ -52,7 +52,7 @@ function createRenderer() {
 
 function createPlane(){
     let planeGeometry = new THREE.PlaneGeometry(20, 20, 10, 10);
-    let planeMaterial = new THREE.MeshBasicMaterial({color: 0x003737});
+    let planeMaterial = new THREE.MeshBasicMaterial({color: 0x000000});
     let plane = new THREE.Mesh(planeGeometry, planeMaterial);
     plane.rotation.x = (Math.PI * 3) / 2;
     plane.position.y -= 0.2;

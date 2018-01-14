@@ -39,7 +39,7 @@ function createRenderer() {
 };
 
 function createSkybox() {
-    let geometry = new THREE.CubeGeometry(100, 100, 100);
+    let geometry = new THREE.CubeGeometry(1000, 1000, 1000);
     
     let materials = [
         new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load("img/rt.jpg"), side: THREE.DoubleSide }),

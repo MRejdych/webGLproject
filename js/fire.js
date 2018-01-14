@@ -36,11 +36,11 @@ function createFireMaterial(camera, height) {
     texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
     let uniforms = {
-        color: {type: "c", value: null},
-        size: {type: "f", value: 0.0},
+        color: {type: "c", value: new THREE.Color(0xff2200)},
+        size: {type: "f", value: 0.8},
         texture: {type: "t", value: texture},
         time: {type: "f", value: 0.0},
-        heightOfNearPlane: {type: "f", value: Math.abs(height / (2 * Math.tan(THREE.Math.degToRad(camera.fov * 0.5))))}
+        heightOfNearPlane: {type: "f", value: Math.abs(height / (2 * Math.tan(THREE.Math.degToRad(camera.fov / 2))))}
     };
 
     let vertexShader = [
@@ -49,20 +49,17 @@ function createFireMaterial(camera, height) {
         'varying float vSprite, vOpacity;',
         'float PI = 3.14;',
 
-        'float quadraticIn( float t ) {',
-            'float tt = t * t;',
-            'return tt * tt;',
+        'float to4thPower( float t ) {',
+            'return t * t * t * t;',
         '}',
 
         'void main() {',
             'float progress = fract(time + (2.0 * random - 1.0));',
-            'float progressNeg = 1.0 - (progress/1.2);',
-            'float ease = quadraticIn(progress);',
-            'float influence = sin(PI * ease);',
+            'float ease = to4thPower(progress);',
             'vec3 newPosition = position * vec3(1.0, ease, 1.0);',
             'gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);',
             'gl_PointSize = (heightOfNearPlane * size) / gl_Position.w;',
-            'vOpacity = min(influence * 3.0, 1.0) * progressNeg;',
+            'vOpacity = min(sin(PI * ease) * 3.0, 1.0) * (1.0 - (progress/1.2));',
             'vSprite = sprite;',
         '}'
 
@@ -84,17 +81,12 @@ function createFireMaterial(camera, height) {
         vertexShader: vertexShader,
         fragmentShader: fragmentShader,
         blending: THREE.AdditiveBlending,
-        depthTest: false,
         depthWrite: false,
         transparent: true
     });
 
-    fireMaterial.uniforms.color.value = fireMaterial.color = new THREE.Color(0xff2200);
-
-    fireMaterial.uniforms.size.value = fireMaterial.size = 0.8;
-
     fireMaterial.update = function (delta) {
-        this.uniforms.time.value = (this.uniforms.time.value + delta) % 1;
+        this.uniforms.time.value += delta;
     };
     return fireMaterial;
 }

@@ -38,7 +38,7 @@ function animate() {
     offset += 0.3;
     requestAnimationFrame(animate);
     fire.material.update(delta);
-    pointLight.distance += ((Math.cos(offset)) / 1.5);
+    pointLight.distance += ((Math.cos(offset)) / 1.2);
     renderer.render(scene, camera);
 }
 
@@ -61,6 +61,7 @@ function initStats(){
 function createPointLight() {
     let light = new THREE.PointLight(0xdfafaf, 1, 30, 3);
     light.position.y += 3;
+    light.rotation.z += 10;
     light.castShadow = true;
     return light;
 }
