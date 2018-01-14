@@ -30,7 +30,7 @@ function animate() {
     icosahedron.rotation.y += controls.yRotationSpeed;
     icosahedron.position.y = 0 + ((Math.cos(offset)) / 2);
     renderer.render(scene, camera);
-};
+}
 
 function initControls(){
     let controls = new function() {

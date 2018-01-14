@@ -13,7 +13,7 @@ let texture = void 0;
 scene.add(skybox);
 scene.add(ambientLight);
 scene.add(spotLight);
-scene.add(plane);
+//scene.add(plane);
 
 fire = addCampfire();
 
